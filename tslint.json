@@ -1,10 +1,40 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"], //tslint过于热心
+  // "extends": [],
+  // "defaultSeverity": "warning",
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js"
     ]
+  },
+  "rules": {
+    // 可以log
+    "no-console": [false, "log", "error"],
+    // 可以let,不只是const
+    "prefer-const": false,
+    // 允许interface与其他语句之间空行问题
+    "interface-name": [true, "never-prefix"],
+    // 定义类型不需要按字母的ASCII码排序
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    // 解除只能使用箭头函数(可以使用普通函数)
+    "only-arrow-functions": [false],
+    // 是否只能用type定义函数类型(interface为真就不能用于函数类型定义)
+    "callable-types": false,
+    // 是否让每个js文件只能有一个类
+    "max-classes-per-file": false,
+    // 是否禁用字符串索引值
+    "no-string-literal": false,
+    // 起名规范
+    "variable-name": {
+      "options": [
+        "ban-keywords", // 禁止检查关键字名称
+        "check-format", // 检查正式的名称
+        "allow-leading-underscore", // 允许前置下滑线
+        "allow-pascal-case" // 目前不清楚
+      ]
+    }
   }
 }

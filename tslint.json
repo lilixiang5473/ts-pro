@@ -35,6 +35,9 @@
         "allow-leading-underscore", // 允许前置下滑线
         "allow-pascal-case" // 目前不清楚
       ]
-    }
+    },
+    // 是否禁止对象中使用key value格式的function
+    "object-literal-shorthand": false,
+    "array-type": false
   }
 }

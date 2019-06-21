@@ -484,35 +484,310 @@ class App extends React.Component {
     // if (employee.fullName) {
     //   console.log(employee.fullName);
     // }
-    let passcode = "secret passcode";
 
-    class Employee {
-      private theFullName: string;
-      get fullName(): string {
-        return this.theFullName;
-      }
-      set fullName(newName: string) {
-        if (passcode && passcode === "secret passcode") {
-          this.theFullName = newName;
-        } else {
-          console.log("Error: Unauthorized update of employee!");
-        }
-      }
-    }
-    let employee = new Employee();
-    employee.fullName = "Bob Smith";
-    if (employee.fullName) {
-      alert(employee.fullName);
-    }
+    // set get方法，不允许随便改
+    // let passcode = "secret passcode";
+    // class Employee {
+    //   private theFullName: string;
+    //   get fullName(): string {
+    //     return this.theFullName;
+    //   }
+    //   set fullName(newName: string) {
+    //     if (passcode && passcode === "secret passcode") {
+    //       this.theFullName = newName;
+    //     } else {
+    //       console.log("Error: Unauthorized update of employee!");
+    //     }
+    //   }
+    // }
+    // let employee = new Employee();
+    // employee.fullName = "Bob Smith";
+    // if (employee.fullName) {
+    //   console.log(employee.fullName);
+    // }
+
+    // 计算到原点的距离公式
+    // class Grid {
+    //   public static origin = { x: 0, y: 0 };
+    //   constructor(public scale: number) {}
+    //   public calculateDistanceFromOrigin(point: { x: number; y: number }) {
+    //     let xDist = point.x - Grid.origin.x;
+    //     let yDist = point.y - Grid.origin.y;
+    //     return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
+    //   }
+    // }
+    // let grid1 = new Grid(1.0); // 1x scale
+    // let grid2 = new Grid(5.0); // 5x scale
+    // console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+    // console.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+
+    // 抽象类
+    // abstract class Animal {
+    //   public abstract makeSound(): void;
+    //   public move(): void {
+    //     // console.log("roaming the earch...");
+    //   }
+    // }
+    // console.log(Animal);
+
+    // 抽象类继承
+    // abstract class Department {
+    //   constructor(public name: string) {}
+    //   public printName(): void {
+    //     console.log("Department name: " + this.name);
+    //   }
+    //   public abstract printMeeting(): void; // 必须在派生类中实现
+    // }
+
+    // class AccountingDepartment extends Department {
+    //   constructor() {
+    //     super("Accounting and Auditing"); // 在派生类的构造函数中必须调用 super()
+    //   }
+    //   public printMeeting(): void {
+    //     console.log("The Accounting Department meets each Monday at 10am.");
+    //   }
+    //   public generateReports(): void {
+    //     console.log("Generating accounting reports...");
+    //   }
+    // }
+    // let department: Department; // 允许创建一个对抽象类型的引用
+    // // department = new Department(); // 错误: 不能创建一个抽象类的实例
+    // department = new AccountingDepartment(); // 允许对一个抽象子类进行实例化和赋值
+    // console.log(department);
+    // department.printName();
+    // department.printMeeting();
+    // // department.generateReports(); // 错误: 方法在声明的抽象类中不存在
+
+    // 赋值构造函数
+    // class Greeter {
+    //   public static standardGreeting: string = "static";
+    //   // public greeting: string;
+    //   constructor(public greeting?: string) {}
+    //   public greet() {
+    //     if (this.greeting) {
+    //       return this.greeting;
+    //     } else {
+    //       return Greeter.standardGreeting;
+    //     }
+    //   }
+    // }
+    // let greeter1: Greeter;
+    // greeter1 = new Greeter();
+    // console.log(greeter1.greet());
+    // let greeterMaker: typeof Greeter = Greeter;
+    // greeterMaker.standardGreeting = "new static"; // 修改了原本的静态属性
+    // let greeter2: Greeter = new greeterMaker();
+    // console.log(greeter2.greet());
+    // let greeter3: Greeter = new greeterMaker("exist");
+    // console.log(greeter3.greet());
+
+    // 把类当作接口用
+    // class Point {
+    //   public x: number;
+    //   public y: number;
+    // }
+    // interface Point3d extends Point {
+    //   z: number;
+    // }
+    // let point3d: Point3d = { x: 1, y: 2, z: 3 };
+    // console.log(point3d);
+
+    // 函数
+    // function add(x: number, y: number): number {
+    //   return x + y;
+    // }
+    // console.log(add(2, 3));
+    // let myAdd = function(x: number, y: number): number {
+    //   return x + y;
+    // };
+    // console.log(myAdd(2, 3));
+
+    // let myAdd: (x: number, y: number) => number = function(
+    //   x: number,
+    //   y: number
+    // ): number {
+    //   return x + y;
+    // };
+    // console.log(myAdd(2, 3));
+
+    // let test: (x: number, y: number) => number = function(
+    //   x: number,
+    //   y: number
+    // ): number {
+    //   return x + y;
+    // };
+    // console.log(test(2, 3));
+
+    // function buildName(firstName: string, lastName?: string) {
+    // function buildName(firstName: string, lastName: string = "hello") {
+    //   if (lastName) {
+    //     return firstName + " " + lastName;
+    //   } else {
+    //     return firstName;
+    //   }
+    // }
+    // console.log(buildName("one", "two"));
+
+    // 剩余运算符
+    // function buildName(firstName: string, ...restOfName: string[]) {
+    //   console.log(restOfName);
+    //   return firstName + " " + restOfName.join(" ");
+    // }
+    // let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+    // console.log(employeeName);
+
+    // ...rest
+    // function test(one: string, ...rest: any[]): void {
+    //   console.log(rest[1]);
+    // }
+    // test("one", { a: "a" }, ["hello"]);
+
+    // ***this在ts中的用法(重点，必会)***
+    // interface Card {
+    //   suit: string;
+    //   card: number;
+    // }
+    // interface Deck {
+    //   suits: string[];
+    //   cards: number[];
+    //   createCardPicker(this: Deck): () => Card;
+    // }
+    // let deck: Deck = {
+    //   suits: ["hearts", "spades", "clubs", "diamonds"],
+    //   cards: Array(52),
+    //   createCardPicker: function(this: Deck) {
+    //     return () => {
+    //       let pickedCard = Math.floor(Math.random() * 52);
+    //       let pickedSuit = Math.floor(pickedCard / 13);
+    //       return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
+    //     };
+    //   }
+    // };
+    // let createCardPicker = deck.createCardPicker();
+    // console.log(createCardPicker());
+    // interface Test {
+    //   suits: string;
+    //   testFunc: (this: Test) => () => Card;
+    // }
+    // class TEST implements Test {
+    //   public suits: string = "suits";
+    //   public testFunc = function(this: Test) {
+    //     return () => {
+    //       let pickedCard = Math.floor(Math.random() * 52);
+    //       return { suit: this.suits, card: pickedCard % 13 };
+    //     };
+    //   };
+    // }
+    // let test = new TEST().testFunc();
+    // console.log(test());
+
+    // 添加事件监听时需要定义this和event
+    // interface UIElement {
+    //   addClickListener(onclick: (this: void, e: string) => void): void;
+    // }
+    // class Test implements UIElement {
+    //   public addClickListener: (
+    //     onclick: (this: any, e: string) => void
+    //   ) => void = (onClick): void => {
+    //     onClick.call(this, "hello");
+    //   };
+    // }
+    // class Handler {
+    //   public info: any;
+    //   public onClickBad(this: Handler, e: string): void {
+    //     // oops, used this here. using this callback would crash at runtime
+    //     console.log(this, e);
+    //   }
+    // }
+    // let h = new Handler();
+    // let uiElement = new Test();
+    // h.onClickBad("hello");
+    // uiElement.addClickListener(h.onClickBad);
+
+    // class Test {
+    //   public attr: string = "str";
+    //   public test: (this: any) => void = function(this: any): void {
+    //     console.log(this.attr);
+    //   };
+    // }
+    // let test = new Test();
+    // test.test();
+
+    // 重载
+    // let suits = ["hearts", "spades", "clubs", "diamonds"];
+    // function pickCard(x: Array<{ suit: string; card: number }>): number;
+    // function pickCard(x: number): { suit: string; card: number };
+    // function pickCard(x: any): any {
+    //   // Check to see if we're working with an object/array
+    //   // if so, they gave us the deck and we'll pick the card
+    //   if (typeof x === "object") {
+    //     let pickedCard = Math.floor(Math.random() * x.length);
+    //     return pickedCard;
+    //   }
+    //   // Otherwise just let them pick the card
+    //   else if (typeof x === "number") {
+    //     let pickedSuit = Math.floor(x / 13);
+    //     return { suit: suits[pickedSuit], card: x % 13 };
+    //   }
+    // }
+    // let myDeck = [
+    //   { suit: "diamonds", card: 2 },
+    //   { suit: "spades", card: 10 },
+    //   { suit: "hearts", card: 4 }
+    // ];
+    // let pickedCard1 = myDeck[pickCard(myDeck)];
+    // console.log("card: " + pickedCard1.card + " of " + pickedCard1.suit);
+    // let pickedCard2 = pickCard(15);
+    // console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
+
+    // 泛型(大项目会用，提高类型重用性)
+    // function identity<T>(arg: T): T {
+    //   return arg;
+    // }
+    // let output = identity<number>(2);
+    // console.log(output);
+
+    // function loggingIdentity<T>(arg: T[]): T[] {
+    //   console.log(arg.length); // Array has a .length, so no more error
+    //   return arg;
+    // }
+    // console.log(loggingIdentity<number | string>([0, "str"]));
+
+    // function identity<T>(arg: T): T {
+    //   return arg;
+    // }
+    // let myIdentity: <U>(arg: U) => U = identity;
+    // console.log(myIdentity(2));
+
+    // function identity<T>(arg: T): T {
+    //   return arg;
+    // }
+    // let myIdentity: { <T>(arg: T): T } = identity;
+    // console.log(myIdentity(2));
 
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
+        <div
+          ref={() => {
+            return "event";
+          }}
+          onClick={this.eventClick}
+          style={{ background: "pink", height: "50px" }}
+        >
+          event
+          <dialog open={true}>dialog</dialog>
+        </div>
       </div>
     );
   }
+
+  public eventClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    console.log(event.target);
+    console.log(this);
+  };
 }
 
 export default App;
